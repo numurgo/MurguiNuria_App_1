@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/level_instruct"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="15dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginRight="15dp"
+    android:layout_marginBottom="20dp"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".Nivel">
+
+    <TextView
+        android:id="@+id/level"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:text="@string/level_1"
+        android:textColor="@color/textTerciary"
+        android:textSize="28sp" />
+
+    <ImageView
+        android:id="@+id/imagen_nivel"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginBottom="50dp"
+        app:srcCompat="@drawable/armario" />
+
+    <TextView
+        android:id="@+id/instrucciones"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="30dp"
+        android:lineSpacingExtra="8sp"
+        android:text="@string/instrucciones_1"
+        android:textAlignment="inherit"
+        android:textColor="@color/textColor"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/bLevel"
+        android:layout_width="330dp"
+        android:layout_height="40dp"
+        android:background="@color/levelBoton"
+        android:text="@string/texto_boton_nivel"
+        android:textColor="@color/textSecondary" />
+</LinearLayout>

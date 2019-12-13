@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">MurguiNuria_App_1</string>
+    <string name="selector_nivel">Selecciona tu misión</string>
+    <string name="level_1">Nivel 1</string>
+    <string name="armario">Armario</string>
+    <string name="instrucciones_1">Conduce el dron hasta la parte superior del armario y aterrízalo justo en el medio. ¡No lo aterrices bruscamente!</string>
+    <string name="texto_boton_nivel">EMPEZAR</string>
+    <string name="instrucciones_2">Ja ja hola</string>
+    <string name="text_register">Introduce tus datos</string>
+
+</resources>

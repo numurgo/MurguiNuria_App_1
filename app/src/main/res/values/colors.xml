@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#A2DDFF</color>
+    <color name="colorPrimaryDark">#1B89CA</color>
+    <color name="colorAccent">#A9CBE4</color>
+
+    <color name="textColor">#8A000000</color>
+    <color name="textTitleColor">#DD000000</color>
+    <color name="textSecondary">#FFFFFF</color>
+    <color name="textTerciary">#3887C3</color>
+
+    <color name="levelBoton">#88C0EB</color>
+
+</resources>
