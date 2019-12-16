@@ -31,16 +31,8 @@
 
     <TextView
         android:id="@+id/instrucciones"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="30dp"
-        android:lineSpacingExtra="8sp"
-        android:text="@string/instrucciones_1"
-        android:textAlignment="inherit"
-        android:textColor="@color/textColor"
-        android:textSize="16sp" />
+        style="@style/textoNivel"
+        android:text="@string/instrucciones_1" />
 
     <Button
         android:id="@+id/bLevel"
