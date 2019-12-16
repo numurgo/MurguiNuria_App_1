@@ -41,7 +41,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.nivel.setText(itemsData.get(position).getNivel());
         holder.tituloNivel.setText(itemsData.get(position).getTituloNivel());
         holder.imagenNivel.setImageResource(itemsData.get(position).getImageUrl());
-        holder.nivel.setClickable(itemsData.get(position).isActive());
+        holder.niveles.setEnabled(itemsData.get(position).isActive());
+        holder.niveles.setAlpha(itemsData.get(position).getAlpha());
         holder.niveles.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -49,7 +50,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                 intent.putExtra("nivel", itemsData.get(position).getNivel());
                 intent.putExtra("instrucciones", itemsData.get(position).getInstrucciones());
                 intent.putExtra("imagen_url", itemsData.get(position).getImageUrl());
-                //intent.putExtra("active", itemsData.get(position).isActive());
                 mContext.startActivity(intent);
             }
         });

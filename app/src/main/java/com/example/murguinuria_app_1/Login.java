@@ -21,14 +21,6 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         bRegistro = findViewById(R.id.bRegister);
-        bRegistro.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intentRegistro = new Intent(Login.this, Register.class);
-                Login.this.startActivity(intentRegistro);
-            }
-        });
-
         usuario = findViewById(R.id.usuarioLogin);
         password = findViewById(R.id.passwordLogin);
         bLogin = findViewById(R.id.bLogin);
@@ -40,5 +32,9 @@ public class Login extends AppCompatActivity {
         startActivity(entrar);
     }
 
+    public void Register(View v){
+        Intent intentRegistro = new Intent(Login.this, Register.class);
+        Login.this.startActivity(intentRegistro);
+    }
 
 }

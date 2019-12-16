@@ -23,11 +23,11 @@ public class MainActivity extends AppCompatActivity {
 
         //2. Definir el array
         itemsData = new ArrayList();
-        itemsData.add(new ItemData("Nivel 1", "Armario", "Conduce el dron hasta la parte superior del armario y aterrízalo justo en el medio. ¡No lo aterrices bruscamente!", R.drawable.armario, true));
-        itemsData.add(new ItemData("Nivel 2", "Desnivel", "Hello", R.drawable.desnivel, false));
-        itemsData.add(new ItemData("Nivel 3", "Circuito", "Hello", R.drawable.circuito, false));
-        itemsData.add(new ItemData("Nivel 4", "Aterrizaje", "Hello", R.drawable.aterrizaje, false));
-        itemsData.add(new ItemData("Nivel 5", "Transporte", "Hello", R.drawable.transporte, false));
+        itemsData.add(new ItemData("Nivel 1", "Armario", "Conduce el dron hasta la parte superior del armario y aterrízalo justo en el medio. ¡No lo aterrices bruscamente!", R.drawable.armario, true, 1));
+        itemsData.add(new ItemData("Nivel 2", "Desnivel", "Hello", R.drawable.desnivel, false, 0.5f));
+        itemsData.add(new ItemData("Nivel 3", "Circuito", "Hello", R.drawable.circuito, false, 0.5f));
+        itemsData.add(new ItemData("Nivel 4", "Aterrizaje", "Hello", R.drawable.aterrizaje, false, 0.5f));
+        itemsData.add(new ItemData("Nivel 5", "Transporte", "Hello", R.drawable.transporte, false, 0.5f));
 
         //3. Definir el LayoutManager
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false);

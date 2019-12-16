@@ -60,6 +60,8 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:lineSpacingExtra="8sp"
+        android:onClick="Register"
+        android:clickable="true"
         android:textSize="16dp"
         android:text="Registrar" />
 </LinearLayout>

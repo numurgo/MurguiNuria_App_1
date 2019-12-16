@@ -5,13 +5,15 @@ public class ItemData {
     private String nivel, tituloNivel, instrucciones;
     private int imageUrl;
     boolean active;
+    private float alpha;
 
-    public ItemData(String nivel, String tituloNivel, String instrucciones, int imageUrl, boolean active) {
+    public ItemData(String nivel, String tituloNivel, String instrucciones, int imageUrl, boolean active, float alpha) {
         this.nivel = nivel;
         this.tituloNivel = tituloNivel;
         this.instrucciones = instrucciones;
         this.imageUrl = imageUrl;
-        this.active= true;
+        this.active= active;
+        this.alpha= alpha;
     }
 
     public String getNivel() {
@@ -48,6 +50,14 @@ public class ItemData {
 
     public boolean isActive() {
         return active;
+    }
+
+    public void setAlpha(float alpha) {
+        this.alpha = alpha;
+    }
+
+    public float getAlpha() {
+        return alpha;
     }
 
     public void setActive(boolean active) {
