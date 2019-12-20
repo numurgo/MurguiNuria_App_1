@@ -28,9 +28,9 @@ public class UsuariosSQLiteOpenHelper extends SQLiteOpenHelper {
                 "password TEXT NOT NULL, "+
                 "nivel INT NOT NULL);");
         pass=obtenerCifrado("1111");
-        db.execSQL("INSERT INTO usuarios_table(usuario,password) VALUES('Nuria','" + pass + "');");
+        db.execSQL("INSERT INTO usuarios_table(nombre,usuario,password, nivel) VALUES('Nuria', 'numurgo', '" + pass + "', '1');");
         pass=obtenerCifrado("2222");
-        db.execSQL("INSERT INTO usuarios_table(usuario,password) VALUES('Alicia','" + pass + "');");
+        db.execSQL("INSERT INTO usuarios_table(nombre,usuario,password, nivel) VALUES('Alicia','almart', '" + pass + "', '1');");
     }
 
     @Override

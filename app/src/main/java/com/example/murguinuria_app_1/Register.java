@@ -2,6 +2,7 @@ package com.example.murguinuria_app_1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -32,6 +33,9 @@ public class Register extends AppCompatActivity {
             String pass = password.getText().toString();
             int level = 1;
             dbusuarios.addContact(name, user, pass, level);
+
+            Intent intentRegister = new Intent(Register.this, Login.class);
+            Register.this.startActivity(intentRegister);
         }
 
     }
