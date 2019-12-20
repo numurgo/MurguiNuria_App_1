@@ -37,7 +37,7 @@
         android:id="@+id/passwordRegister"
         style="@style/editText"
         android:hint="Contraseña"
-        android:inputType="textPersonName" />
+        android:inputType="textPassword" />
 
     <Button
         android:id="@+id/bRegister"

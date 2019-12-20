@@ -2,14 +2,14 @@ package com.example.murguinuria_app_1;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 
 public class UsuariosSQLiteOpenHelper extends SQLiteOpenHelper {
 
@@ -19,11 +19,18 @@ public class UsuariosSQLiteOpenHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE contactos_table("+
+        String pass;
+
+        db.execSQL("CREATE TABLE usuarios_table("+
                 "id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "+
                 "nombre TEXT NOT NULL, "+
                 "usuario TEXT NOT NULL, "+
-                "passowrd TEXT NOT NULL);");
+                "passowrd TEXT NOT NULL, "+
+                "nivel INT NOT NULL);");
+        pass=obtenerCifrado("1111");
+        db.execSQL("INSERT INTO usuarios_table(usuario,password) VALUES('Nuria','" + pass + "');");
+        pass=obtenerCifrado("2222");
+        db.execSQL("INSERT INTO usuarios_table(usuario,password) VALUES('Alicia','" + pass + "');");
     }
 
     @Override
@@ -31,35 +38,37 @@ public class UsuariosSQLiteOpenHelper extends SQLiteOpenHelper {
 
     }
 
-    public void addContact(String nombre, String usuario, String contraseña){
+    public void addContact(String nombre, String usuario, String contraseña, int nivel){
         SQLiteDatabase db = getWritableDatabase();
 
         ContentValues values = new ContentValues();
         values.put("nombre", nombre);
         values.put("usuario", usuario);
         values.put("password", contraseña);
+        values.put("nivel", nivel);
         db.insert("usuarios_table", null, values);
         db.close();
     }
 
-  /*  public List<Usuarios> getUsuario(){
-        List<Usuarios> resultat = new ArrayList<>();
-        Usuarios usuario;
+    public static String obtenerCifrado(String cadena){
+        byte[] cadenaEncriptada = null;
+        byte[] cadenaSinEncriptar = cadena.getBytes();
+        StringBuffer respuesta = new StringBuffer();
 
-        SQLiteDatabase db = getReadableDatabase();
-
-        //Servix per a navegar per els elements de la base de daes
-        Cursor cursor = db.query("usuarios_table", new String[]{"nombre", "usuario", "password"}, null, null, null, null, "Nombre", null);
-        while (cursor.moveToNext()){
-            usuario = new Usuarios(
-                    cursor.getString(0),
-                    cursor.getString(1),
-                    cursor.getString(2));
-            resultat.add(usuario);
+        try {
+            MessageDigest procesa = MessageDigest.getInstance("SHA-512");
+            procesa.reset();
+            procesa.update(cadenaSinEncriptar);
+            cadenaEncriptada = procesa.digest();
+            for(int i=0; i< cadenaEncriptada.length; ++i){
+                respuesta.append(Integer.toHexString(cadenaEncriptada[i] & 0XFF | 0x100).substring(1,3));
+            }
+            return respuesta.toString();
+        }catch (NoSuchAlgorithmException e){
+            e.printStackTrace();
         }
-        cursor.close();
-        db.close();
-        return resultat;
-    }*/
+        return null;
+    }
+
 }
 

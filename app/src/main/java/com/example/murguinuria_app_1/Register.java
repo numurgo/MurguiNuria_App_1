@@ -30,7 +30,8 @@ public class Register extends AppCompatActivity {
             String name = nombre.getText().toString();
             String user = usuario.getText().toString();
             String pass = password.getText().toString();
-            dbusuarios.addContact(name, user, pass);
+            int level = 1;
+            dbusuarios.addContact(name, user, pass, level);
         }
 
     }
