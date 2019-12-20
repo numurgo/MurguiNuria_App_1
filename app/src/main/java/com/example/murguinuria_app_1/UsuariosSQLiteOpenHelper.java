@@ -25,7 +25,7 @@ public class UsuariosSQLiteOpenHelper extends SQLiteOpenHelper {
                 "id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "+
                 "nombre TEXT NOT NULL, "+
                 "usuario TEXT NOT NULL, "+
-                "passowrd TEXT NOT NULL, "+
+                "password TEXT NOT NULL, "+
                 "nivel INT NOT NULL);");
         pass=obtenerCifrado("1111");
         db.execSQL("INSERT INTO usuarios_table(usuario,password) VALUES('Nuria','" + pass + "');");
