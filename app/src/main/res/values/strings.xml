@@ -4,17 +4,15 @@
     <string name="level_1">Nivel 1</string>
     <string name="armario">Armario</string>
     <string name="instrucciones_1">Conduce el dron hasta la parte superior del armario y aterrízalo justo en el medio. ¡No lo aterrices bruscamente!</string>
+    <string name="text_level_1">El armario es conocido al menos desde la época romana, según aparece en las pinturas de Herculano. Aunque en un principio sólo
+        servía para contener armas, según indica su nombre, pronto se utilizó para guardar todo tipo de objetos.5​
+
+        Los romanos destinaban este mueble para encerrar los retratos de sus antepasados y los libros. Los primeros, como estaban hechos de cera, tenían que
+        estar encerrados para que con el aire y el polvo no se echasen a perder. Estos armarios no se abrían más que los días números.6​
+
+</string>
     <string name="texto_boton_nivel">EMPEZAR</string>
     <string name="instrucciones_2">Ja ja hola</string>
     <string name="text_register">Introduce tus datos</string>
-    <string name="title_activity_login">Sign in</string>
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome !"</string>
-    <string name="invalid_username">Not a valid username</string>
-    <string name="invalid_password">Password must be >5 characters</string>
-    <string name="login_failed">"Login failed"</string>
 
 </resources>

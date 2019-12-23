@@ -2,6 +2,7 @@ package com.example.murguinuria_app_1;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -35,5 +36,10 @@ public class Nivel extends AppCompatActivity {
         imagenNivel.setImageResource(imagenNivelRec);
         nivel.setText(nivelRec);
         instrucciones.setText(instruccionesRec);
+    }
+
+    public void nivel (View v){
+        Intent intentNivel = new Intent(Nivel.this, Controles.class);
+        Nivel.this.startActivity(intentNivel);
     }
 }

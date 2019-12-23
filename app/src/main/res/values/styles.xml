@@ -24,6 +24,8 @@
         <item name="android:layout_marginTop">20dp</item>
         <item name="android:layout_weight">1</item>
         <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:background">@color/levelBoton</item>
+        <item name="android:textColor">@color/textSecondary</item>
     </style>
 
     <style name="textoInicio">
@@ -52,6 +54,16 @@
     <style name="botonControles">
         <item name="android:layout_height">50dp</item>
         <item name="android:layout_width">50dp</item>
+    </style>
+
+    <style name="botonTexto">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:lineSpacingExtra">8sp</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:textColor">@color/textTerciary</item>
     </style>
 
 </resources>
