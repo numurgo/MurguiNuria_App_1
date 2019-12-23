@@ -38,7 +38,7 @@ public class Nivel extends AppCompatActivity {
         instrucciones.setText(instruccionesRec);
     }
 
-    public void nivel (View v){
+    public void controles (View v){
         Intent intentNivel = new Intent(Nivel.this, Controles.class);
         Nivel.this.startActivity(intentNivel);
     }

@@ -39,7 +39,7 @@
         android:layout_width="330dp"
         android:layout_height="40dp"
         android:background="@color/levelBoton"
-        android:onClick="nivel"
+        android:onClick="controles"
         android:text="@string/texto_boton_nivel"
         android:textColor="@color/textSecondary" />
 </LinearLayout>

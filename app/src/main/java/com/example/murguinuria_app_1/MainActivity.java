@@ -42,4 +42,12 @@ public class MainActivity extends AppCompatActivity {
         //6. Poner animación por defecto
         recyclerView.setItemAnimator(new DefaultItemAnimator());
     }
+
+    public ArrayList<ItemData> getItemsData() {
+        return itemsData;
+    }
+
+    public void setItemsData(ArrayList<ItemData> itemsData) {
+        this.itemsData = itemsData;
+    }
 }

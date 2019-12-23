@@ -12,7 +12,7 @@
     android:layout_marginBottom="20dp"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context=".Nivel">
+    tools:context=".NivelSuperado">
 
     <ScrollView
         android:id="@+id/scrollNivelSuperado"
@@ -59,6 +59,7 @@
                     android:id="@+id/bPantallaNiveles"
                     style="@style/botonTexto"
                     android:clickable="true"
+                    android:onClick="volverNiveles"
                     android:text="Selección niveles"
                     android:textSize="16dp" />
 
