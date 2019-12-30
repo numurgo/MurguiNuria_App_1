@@ -23,11 +23,11 @@ public class MainActivity extends AppCompatActivity {
 
         //2. Definir el array
         itemsData = new ArrayList();
-        itemsData.add(new ItemData("Nivel 1", "Armario", "Conduce el dron hasta la parte superior del armario y aterrízalo justo en el medio. ¡No lo aterrices bruscamente!", R.drawable.armario, true, 1));
-        itemsData.add(new ItemData("Nivel 2", "Desnivel", "Hello", R.drawable.desnivel, false, 0.5f));
-        itemsData.add(new ItemData("Nivel 3", "Circuito", "Hello", R.drawable.circuito, false, 0.5f));
-        itemsData.add(new ItemData("Nivel 4", "Aterrizaje", "Hello", R.drawable.aterrizaje, false, 0.5f));
-        itemsData.add(new ItemData("Nivel 5", "Transporte", "Hello", R.drawable.transporte, false, 0.5f));
+        itemsData.add(new ItemData("Nivel 1", "Armario", "Conduce el dron hasta la parte superior del armario y aterrízalo justo en el medio. ¡No lo aterrices bruscamente!", R.drawable.armario, 0, true, 1f));
+        itemsData.add(new ItemData("Nivel 2", "Desnivel", "Hello", R.drawable.desnivel, 1,false, 0.5f));
+        itemsData.add(new ItemData("Nivel 3", "Circuito", "Hello", R.drawable.circuito, 2, false, 0.5f));
+        itemsData.add(new ItemData("Nivel 4", "Aterrizaje", "Hello", R.drawable.aterrizaje, 3, false, 0.5f));
+        itemsData.add(new ItemData("Nivel 5", "Transporte", "Hello", R.drawable.transporte, 4, false, 0.5f));
 
         //3. Definir el LayoutManager
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false);
@@ -43,11 +43,4 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
     }
 
-    public ArrayList<ItemData> getItemsData() {
-        return itemsData;
-    }
-
-    public void setItemsData(ArrayList<ItemData> itemsData) {
-        this.itemsData = itemsData;
-    }
 }
