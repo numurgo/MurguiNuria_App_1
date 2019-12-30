@@ -3,15 +3,16 @@ package com.example.murguinuria_app_1;
 public class ItemData {
 
     private String nivel, tituloNivel, instrucciones;
-    private int imageUrl;
+    private int imageUrl, level;
     boolean active;
     private float alpha;
 
-    public ItemData(String nivel, String tituloNivel, String instrucciones, int imageUrl, boolean active, float alpha) {
+    public ItemData(String nivel, String tituloNivel, String instrucciones, int imageUrl, int level, boolean active, float alpha) {
         this.nivel = nivel;
         this.tituloNivel = tituloNivel;
         this.instrucciones = instrucciones;
         this.imageUrl = imageUrl;
+        this.level = level;
         this.active= active;
         this.alpha= alpha;
     }
@@ -62,5 +63,13 @@ public class ItemData {
 
     public void setActive(boolean active) {
         this.active = active;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
     }
 }

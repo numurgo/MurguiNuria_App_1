@@ -2,15 +2,28 @@
     <string name="app_name">MurguiNuria_App_1</string>
     <string name="selector_nivel">Selecciona tu misión</string>
     <string name="level_1">Nivel 1</string>
+    <string name="level_2">Nivel 2</string>
+    <string name="level_3">Nivel 3</string>
+    <string name="level_4">Nivel 4</string>
+    <string name="level_5">Nivel 5</string>
     <string name="armario">Armario</string>
     <string name="instrucciones_1">Conduce el dron hasta la parte superior del armario y aterrízalo justo en el medio. ¡No lo aterrices bruscamente!</string>
     <string name="text_level_1">El armario es conocido al menos desde la época romana, según aparece en las pinturas de Herculano. Aunque en un principio sólo
         servía para contener armas, según indica su nombre, pronto se utilizó para guardar todo tipo de objetos.5​
-
         Los romanos destinaban este mueble para encerrar los retratos de sus antepasados y los libros. Los primeros, como estaban hechos de cera, tenían que
-        estar encerrados para que con el aire y el polvo no se echasen a perder. Estos armarios no se abrían más que los días números.6​
+        estar encerrados para que con el aire y el polvo no se echasen a perder. Estos armarios no se abrían más que los días números.6​ </string>
 
-</string>
+    <string name="text_level_2">Cosas interesantes sobre desnviveles. Ja ja, no hay</string>
+
+    <string name="text_level_3">Spartan Race es líder en el mundo de las carreras de obstáculos, ofreciendo tandas para todos los niveles de forma física,
+        así como tandas competitive y elite dónde se convierte en algo más que una prueba. La carrera de obstáculos pionera en ofrecer cronometraje y ránkings
+        globales, Spartan Race ofrece opciones para principiantes y profesionales de las carreras de obstáculos que buscan ponerse a prueba con nuevos desafíos
+        en todo el mundo.</string>
+
+    <string name="text_level_4">Aterrizaje</string>
+
+    <string name="text_level_5">Transporte</string>
+
     <string name="texto_boton_nivel">EMPEZAR</string>
     <string name="instrucciones_2">Ja ja hola</string>
     <string name="text_register">Introduce tus datos</string>

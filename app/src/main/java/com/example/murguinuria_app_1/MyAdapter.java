@@ -13,7 +13,6 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
@@ -50,6 +49,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                 intent.putExtra("nivel", itemsData.get(position).getNivel());
                 intent.putExtra("instrucciones", itemsData.get(position).getInstrucciones());
                 intent.putExtra("imagen_url", itemsData.get(position).getImageUrl());
+                intent.putExtra("level", itemsData.get(position).getLevel());
                 mContext.startActivity(intent);
             }
         });
@@ -66,13 +66,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         TextView nivel, tituloNivel;
         ImageView imagenNivel;
         CardView niveles;
+        int level;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             niveles = itemView.findViewById(R.id.niveles);
             nivel = itemView.findViewById(R.id.level);
             tituloNivel = itemView.findViewById(R.id.tit_level);
-            imagenNivel = itemView.findViewById(R.id.imagen_nivel);
+            imagenNivel = itemView.findViewById(R.id.imagen_nivel);;
     }
     }
 }

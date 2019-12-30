@@ -31,8 +31,9 @@ public class Register extends AppCompatActivity {
             String name = nombre.getText().toString();
             String user = usuario.getText().toString();
             String pass = password.getText().toString();
-            int level = 1;
-            dbusuarios.addContact(name, user, pass, level);
+            String passCifrada = dbusuarios.obtenerCifrado(pass);
+            int level = 0;
+            dbusuarios.addContact(name, user, passCifrada, level);
 
             Intent intentRegister = new Intent(Register.this, Login.class);
             Register.this.startActivity(intentRegister);

@@ -28,9 +28,9 @@ public class UsuariosSQLiteOpenHelper extends SQLiteOpenHelper {
                 "password TEXT NOT NULL, "+
                 "nivel INT NOT NULL);");
         pass=obtenerCifrado("1111");
-        db.execSQL("INSERT INTO usuarios_table(nombre,usuario,password, nivel) VALUES('Nuria', 'numurgo', '" + pass + "', '1');");
+        db.execSQL("INSERT INTO usuarios_table(nombre,usuario,password, nivel) VALUES('Nuria', 'numurgo', '" + pass + "', '0');");
         pass=obtenerCifrado("2222");
-        db.execSQL("INSERT INTO usuarios_table(nombre,usuario,password, nivel) VALUES('Alicia','almart', '" + pass + "', '1');");
+        db.execSQL("INSERT INTO usuarios_table(nombre,usuario,password, nivel) VALUES('Alicia','almart', '" + pass + "', '0');");
     }
 
     @Override
@@ -48,6 +48,15 @@ public class UsuariosSQLiteOpenHelper extends SQLiteOpenHelper {
         values.put("nivel", nivel);
         db.insert("usuarios_table", null, values);
         db.close();
+    }
+
+    public void updateUserLevel(String usuario, User user){
+        SQLiteDatabase db = getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put("nivel", user.getNivel());
+        db.update("usuarios_table", values, "usuario=?", new String[]{usuario});
+
     }
 
     public static String obtenerCifrado(String cadena){

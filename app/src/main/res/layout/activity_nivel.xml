@@ -34,6 +34,7 @@
         style="@style/textoNivel"
         android:text="@string/instrucciones_1" />
 
+
     <Button
         android:id="@+id/bLevel"
         android:layout_width="330dp"

@@ -13,9 +13,11 @@ public class Nivel extends AppCompatActivity {
 
     ImageView imagenNivel;
     TextView nivel, instrucciones;
+    int level;
 
     String nivelRec, instruccionesRec;
     int imagenNivelRec;
+    int levelRec;
     int defaultValue = 0;
 
 
@@ -32,6 +34,7 @@ public class Nivel extends AppCompatActivity {
         nivelRec = i.getStringExtra("nivel");
         instruccionesRec = i.getStringExtra("instrucciones");
         imagenNivelRec = i.getIntExtra("imagen_url", defaultValue);
+        levelRec = i.getIntExtra("level", defaultValue);
 
         imagenNivel.setImageResource(imagenNivelRec);
         nivel.setText(nivelRec);
@@ -40,6 +43,7 @@ public class Nivel extends AppCompatActivity {
 
     public void controles (View v){
         Intent intentNivel = new Intent(Nivel.this, Controles.class);
+        intentNivel.putExtra("level", levelRec);
         Nivel.this.startActivity(intentNivel);
     }
 }
