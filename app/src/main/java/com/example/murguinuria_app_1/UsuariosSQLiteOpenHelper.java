@@ -50,14 +50,14 @@ public class UsuariosSQLiteOpenHelper extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void updateUserLevel(String usuario, User user){
+    /*public void updateContact(String user, int nivelActualizado){
         SQLiteDatabase db = getWritableDatabase();
-
         ContentValues values = new ContentValues();
-        values.put("nivel", user.getNivel());
-        db.update("usuarios_table", values, "usuario=?", new String[]{usuario});
+        values.put("nivel", nivelActualizado);
+        db.update("usuarios_table", values, "usuario=?", new String[]{user});
+        db.close();
+    }*/
 
-    }
 
     public static String obtenerCifrado(String cadena){
         byte[] cadenaEncriptada = null;

@@ -2,18 +2,23 @@ package com.example.murguinuria_app_1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.os.Debug;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class NivelSuperado extends AppCompatActivity {
 
-    int nivelSuperado;
-    int defaultValue = 0;
+    int nivelActual, nivelSiguiente= 0;
     TextView titNivel, textoNivel;
     ImageView imagenNivel;
 
@@ -26,21 +31,37 @@ public class NivelSuperado extends AppCompatActivity {
         textoNivel = findViewById(R.id.infoNivel);
         imagenNivel = findViewById(R.id.imagen_nivel_superado);
 
-        Intent i = getIntent();
-        nivelSuperado = i.getIntExtra("level", defaultValue);
 
+        SharedPreferences prefs0 = PreferenceManager.getDefaultSharedPreferences(this);
+        nivelActual = prefs0.getInt("level", 0);
         nivelSuperado();
     }
 
+
     public void volverNiveles(View v){
+        nivelSiguiente = nivelActual+1;
+
+        SQLiteDatabase database = new UsuariosSQLiteOpenHelper(NivelSuperado.this).getWritableDatabase();
+        String user;
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putInt("level", nivelSiguiente);
+        editor.apply();
+        user = prefs.getString("user", "");
+
+        //Acceder al método update y actualizar la base de datos
+        ContentValues values = new ContentValues();
+        values.put("nivel", nivelSiguiente);
+        database.update("usuarios_table", values, "usuario=?", new String[]{user});
+        database.close();
+
         Intent intentVolverNiveles = new Intent(NivelSuperado.this, MainActivity.class);
-        intentVolverNiveles.putExtra("level", nivelSuperado);
         NivelSuperado.this.startActivity(intentVolverNiveles);
     }
 
 
     public void nivelSuperado(){
-        switch (nivelSuperado){
+        switch (nivelActual){
             case 0:
                 titNivel.setText(R.string.level_1);
                 textoNivel.setText(R.string.text_level_1);

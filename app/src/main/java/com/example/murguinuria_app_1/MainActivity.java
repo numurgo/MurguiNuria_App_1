@@ -7,22 +7,21 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+    public class MainActivity extends AppCompatActivity {
 
+    int nivel;
     ArrayList<ItemData> itemsData;
-    int nivelOrigen;
-    int defaultValue = 5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        UsuariosSQLiteOpenHelper dbusuarios = new UsuariosSQLiteOpenHelper(this);
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 
@@ -48,34 +47,36 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
 
-
-        //Recibir intent para desbloquear niveles siguientes
-        Intent i = getIntent();
-        nivelOrigen = i.getIntExtra("level", defaultValue);
+        //Coger nivel del preference
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
+        nivel = prefs.getInt("level", 0);
         nivelOrigen();
+
     }
 
     public void nivelOrigen(){
-        switch (nivelOrigen){
+        switch (nivel){
             case 0:
                 itemsData.set(0, new ItemData("Nivel 1", "Armario", "Conduce el dron hasta la parte superior del armario y aterrízalo justo en el medio. ¡No lo aterrices bruscamente!", R.drawable.armario, 0, true, 1f));
-                itemsData.set(1, new ItemData("Nivel 2", "Desnivel", "Hello", R.drawable.desnivel, 1,true, 1f));
                 break;
 
             case 1:
                 itemsData.set(0, new ItemData("Nivel 1", "Armario", "Conduce el dron hasta la parte superior del armario y aterrízalo justo en el medio. ¡No lo aterrices bruscamente!", R.drawable.armario, 0, true, 1f));
                 itemsData.set(1, new ItemData("Nivel 2", "Desnivel", "Hello", R.drawable.desnivel, 1,true, 1f));
-                itemsData.set(2, new ItemData("Nivel 3", "Circuito", "Hello", R.drawable.circuito, 2, true, 1f));
                 break;
 
             case 2:
                 itemsData.set(0, new ItemData("Nivel 1", "Armario", "Conduce el dron hasta la parte superior del armario y aterrízalo justo en el medio. ¡No lo aterrices bruscamente!", R.drawable.armario, 0, true, 1f));
                 itemsData.set(1, new ItemData("Nivel 2", "Desnivel", "Hello", R.drawable.desnivel, 1,true, 1f));
                 itemsData.set(2, new ItemData("Nivel 3", "Circuito", "Hello", R.drawable.circuito, 2, true, 1f));
-                itemsData.set(3, new ItemData("Nivel 4", "Aterrizaje", "Hello", R.drawable.aterrizaje, 3, true, 1f));
                 break;
 
             case 3:
+                itemsData.set(0, new ItemData("Nivel 1", "Armario", "Conduce el dron hasta la parte superior del armario y aterrízalo justo en el medio. ¡No lo aterrices bruscamente!", R.drawable.armario, 0, true, 1f));
+                itemsData.set(1, new ItemData("Nivel 2", "Desnivel", "Hello", R.drawable.desnivel, 1,true, 1f));
+                itemsData.set(2, new ItemData("Nivel 3", "Circuito", "Hello", R.drawable.circuito, 2, true, 1f));
+                itemsData.set(3, new ItemData("Nivel 4", "Aterrizaje", "Hello", R.drawable.aterrizaje, 3, true, 1f));
+                break;
             case 4:
                 itemsData.set(0, new ItemData("Nivel 1", "Armario", "Conduce el dron hasta la parte superior del armario y aterrízalo justo en el medio. ¡No lo aterrices bruscamente!", R.drawable.armario, 0, true, 1f));
                 itemsData.set(1, new ItemData("Nivel 2", "Desnivel", "Hello", R.drawable.desnivel, 1,true, 1f));
@@ -84,10 +85,8 @@ public class MainActivity extends AppCompatActivity {
                 itemsData.set(4, new ItemData("Nivel 5", "Transporte", "Hello", R.drawable.transporte, 4, true, 1f));
                 break;
 
-            case 5:
-                itemsData.set(0, new ItemData("Nivel 1", "Armario", "Conduce el dron hasta la parte superior del armario y aterrízalo justo en el medio. ¡No lo aterrices bruscamente!", R.drawable.armario, 0, true, 1f));
-                itemsData.set(1, new ItemData("Nivel 2", "Desnivel", "Hello", R.drawable.desnivel, 1,false, 0.5f));
-                break;
         }
     }
+
+
 }

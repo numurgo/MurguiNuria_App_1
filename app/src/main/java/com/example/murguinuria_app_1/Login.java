@@ -3,9 +3,11 @@ package com.example.murguinuria_app_1;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -35,6 +37,13 @@ public class Login extends AppCompatActivity {
         bLogin = findViewById(R.id.bLogin);
     }
 
+    @Override
+    protected void onResume() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+
+        super.onResume();
+    }
+
 
     public void entrar(View v) {
         if (usuario.getText().toString().equals("") || password.getText().toString().equals("")) {
@@ -43,12 +52,18 @@ public class Login extends AppCompatActivity {
         } else {
             SQLiteDatabase db = new UsuariosSQLiteOpenHelper(Login.this).getReadableDatabase();
             String usuario = this.usuario.getText().toString();
-            Cursor fila = db.rawQuery("SELECT password FROM usuarios_table WHERE usuario='" + usuario + "';", null);
+            Cursor fila = db.rawQuery("SELECT password, nivel FROM usuarios_table WHERE usuario='" + usuario + "';", null);
             if (fila.moveToFirst() == true) {
                 String pass = fila.getString(0);
+                int nivel = fila.getInt(1);
                 if (obtenerCifrado(password.getText().toString()).equals(pass)) {
                     this.usuario.setText("");
                     password.setText("");
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+                    SharedPreferences.Editor editor = prefs.edit();
+                    editor.putString("user", usuario);
+                    editor.putInt("level", nivel);
+                    editor.apply();
                     Intent intentLogin = new Intent(Login.this, MainActivity.class);
                     Login.this.startActivity(intentLogin);
                 } else {
