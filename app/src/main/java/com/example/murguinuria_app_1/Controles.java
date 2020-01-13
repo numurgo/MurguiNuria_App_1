@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 public class Controles extends AppCompatActivity {
 
+   TextView tituloActivity;
     int nivelActivo;
     int defaultValue = 0;
 
@@ -16,13 +18,18 @@ public class Controles extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_controles);
 
+        tituloActivity = findViewById(R.id.tituloPantalla);
+        tituloActivity.setText("CONTROLES");
         Intent i = getIntent();
         nivelActivo = i.getIntExtra("level", defaultValue);
+
     }
 
     public void nivelSuperado (View v){
         Intent intentNivelSuperado = new Intent(Controles.this, NivelSuperado.class);
         intentNivelSuperado.putExtra("level", nivelActivo);
         Controles.this.startActivity(intentNivelSuperado);
+
+
     }
 }

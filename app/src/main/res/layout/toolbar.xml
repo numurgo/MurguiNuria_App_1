@@ -3,16 +3,17 @@
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/colorPrimaryDark"
+    android:background="@color/colorPrimary"
     android:elevation="4dp">
+
 
     <TextView
         android:id="@+id/tituloPantalla"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TÍTULO"
-        android:textSize="20dp"
-        android:textColor="@color/textSecondary" />
+        android:textColor="@color/textSecondary"
+        android:textSize="20dp" />
 
 
     <TextView
@@ -20,8 +21,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginRight="15dp"
-        android:text="Cerrar sesión"
         android:clickable="true"
+
+        android:text="Cerrar sesión"
         android:textAlignment="textEnd"
         android:textColor="@color/textSecondary" />
 

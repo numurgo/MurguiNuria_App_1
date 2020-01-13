@@ -102,4 +102,10 @@ public class Login extends AppCompatActivity {
         }
         return null;
     }
+
+    public void cerrarSesion(View v){
+        Intent intentCerrar = new Intent(this, Toolbar.class);
+        this.startActivity(intentCerrar);
+    }
+
 }

@@ -1,7 +1,9 @@
 package com.example.murguinuria_app_1;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -12,10 +14,11 @@ import androidx.appcompat.app.AppCompatActivity;
 public class Nivel extends AppCompatActivity {
 
     ImageView imagenNivel;
-    TextView nivel, instrucciones;
+    TextView nivel, instrucciones, tituloActivity;
 
     String nivelRec, instruccionesRec;
     int imagenNivelRec;
+    int levelRec;
     int defaultValue = 0;
 
 
@@ -27,11 +30,14 @@ public class Nivel extends AppCompatActivity {
         imagenNivel = findViewById(R.id.imagen_nivel);
         nivel = findViewById(R.id.level);
         instrucciones = findViewById(R.id.instrucciones);
+        tituloActivity = findViewById(R.id.tituloPantalla);
+        tituloActivity.setText("NIVEL");
 
         Intent i = getIntent();
         nivelRec = i.getStringExtra("nivel");
         instruccionesRec = i.getStringExtra("instrucciones");
         imagenNivelRec = i.getIntExtra("imagen_url", defaultValue);
+        levelRec = i.getIntExtra("level", defaultValue);
 
         imagenNivel.setImageResource(imagenNivelRec);
         nivel.setText(nivelRec);
@@ -40,6 +46,7 @@ public class Nivel extends AppCompatActivity {
 
     public void controles (View v){
         Intent intentNivel = new Intent(Nivel.this, Controles.class);
+        intentNivel.putExtra("level", levelRec);
         Nivel.this.startActivity(intentNivel);
     }
 }

@@ -18,8 +18,9 @@ import java.util.ArrayList;
 
 public class NivelSuperado extends AppCompatActivity {
 
-    int nivelActual, nivelSiguiente= 0;
-    TextView titNivel, textoNivel;
+    int nivelActual, nivelActivo, nivelSiguiente= 0;
+    int defaultValue = 0;
+    TextView titNivel, textoNivel, tituloActivity;
     ImageView imagenNivel;
 
     @Override
@@ -27,10 +28,15 @@ public class NivelSuperado extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nivel_superado);
 
+        tituloActivity = findViewById(R.id.tituloPantalla);
+        tituloActivity.setText("HISTORIA DEL NIVELES");
+
         titNivel = findViewById(R.id.level_superado);
         textoNivel = findViewById(R.id.infoNivel);
         imagenNivel = findViewById(R.id.imagen_nivel_superado);
 
+        Intent i = getIntent();
+        nivelActivo = i.getIntExtra("level", defaultValue);
 
         SharedPreferences prefs0 = PreferenceManager.getDefaultSharedPreferences(this);
         nivelActual = prefs0.getInt("level", 0);
@@ -61,7 +67,7 @@ public class NivelSuperado extends AppCompatActivity {
 
 
     public void nivelSuperado(){
-        switch (nivelActual){
+        switch (nivelActivo){
             case 0:
                 titNivel.setText(R.string.level_1);
                 textoNivel.setText(R.string.text_level_1);

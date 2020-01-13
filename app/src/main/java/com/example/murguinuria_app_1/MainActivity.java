@@ -9,11 +9,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
     public class MainActivity extends AppCompatActivity {
 
+    TextView tituloActivity;
     int nivel;
     ArrayList<ItemData> itemsData;
 
@@ -21,6 +23,9 @@ import java.util.ArrayList;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        tituloActivity = findViewById(R.id.tituloPantalla);
+        tituloActivity.setText("SELECTOR DE NIVELES");
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 
@@ -45,11 +50,11 @@ import java.util.ArrayList;
         //6. Poner animación por defecto
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
-
         //Coger nivel del preference
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
         nivel = prefs.getInt("level", 0);
         nivelOrigen();
+
 
     }
 
