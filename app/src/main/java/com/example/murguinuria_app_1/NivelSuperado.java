@@ -38,7 +38,7 @@ public class NivelSuperado extends AppCompatActivity {
         Intent i = getIntent();
         nivelActivo = i.getIntExtra("level", defaultValue);
 
-        SharedPreferences prefs0 = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences prefs0 = PreferenceManager.getDefaultSharedPreferences(NivelSuperado.this);
         nivelActual = prefs0.getInt("level", 0);
         nivelSuperado();
     }
@@ -49,11 +49,11 @@ public class NivelSuperado extends AppCompatActivity {
 
         SQLiteDatabase database = new UsuariosSQLiteOpenHelper(NivelSuperado.this).getWritableDatabase();
         String user;
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        SharedPreferences.Editor editor = prefs.edit();
+        SharedPreferences prefs1 = PreferenceManager.getDefaultSharedPreferences(NivelSuperado.this);
+        SharedPreferences.Editor editor = prefs1.edit();
         editor.putInt("level", nivelSiguiente);
         editor.apply();
-        user = prefs.getString("user", "");
+        user = prefs1.getString("user", "");
 
         //Acceder al método update y actualizar la base de datos
         ContentValues values = new ContentValues();
