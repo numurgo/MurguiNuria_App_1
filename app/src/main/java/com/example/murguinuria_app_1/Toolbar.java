@@ -15,11 +15,15 @@ public class Toolbar extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        Intent intentvolverLogin = new Intent(this, Login.class);
+        this.startActivity(intentvolverLogin);
+
     }
 
     public void cerrarSesion(View v){
-        Intent intentvolverLogin = new Intent(this, Login.class);
-        this.startActivity(intentvolverLogin);
+        Intent intentToolbar = new Intent(this, Toolbar.class);
+        this.startActivity(intentToolbar);
+
     }
 
 
