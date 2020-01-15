@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:background="@color/colorPrimary"
     android:elevation="4dp"
-    tools:context=".Toolbar">
+    >
 
 
     <TextView
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="15dp"
         android:clickable="true"
-        android:onClick="cerrarSesion"
+
         android:text="Cerrar sesión"
         android:textAlignment="textEnd"
         android:textColor="@color/textSecondary" />

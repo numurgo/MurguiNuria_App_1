@@ -43,7 +43,6 @@ public class Nivel extends AppCompatActivity {
         nivel.setText(nivelRec);
         instrucciones.setText(instruccionesRec);
 
-        SharedPreferences prefsNivel = PreferenceManager.getDefaultSharedPreferences(Nivel.this);
     }
 
     public void controles (View v){

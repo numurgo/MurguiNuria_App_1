@@ -27,7 +27,7 @@ public class Toolbar extends AppCompatActivity {
     }
 
 
-    @Override
+   @Override
     protected void onDestroy() {
         SharedPreferences prefsLogout= PreferenceManager.getDefaultSharedPreferences(this);
         prefsLogout.edit().clear().commit();

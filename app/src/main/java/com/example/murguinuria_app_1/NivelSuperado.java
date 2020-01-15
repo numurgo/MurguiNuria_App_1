@@ -41,6 +41,7 @@ public class NivelSuperado extends AppCompatActivity {
         SharedPreferences prefs0 = PreferenceManager.getDefaultSharedPreferences(NivelSuperado.this);
         nivelActual = prefs0.getInt("level", 0);
         nivelSuperado();
+        Toast.makeText(this, nivelActual, Toast.LENGTH_SHORT).show();
     }
 
 
@@ -63,6 +64,7 @@ public class NivelSuperado extends AppCompatActivity {
 
         Intent intentVolverNiveles = new Intent(NivelSuperado.this, MainActivity.class);
         NivelSuperado.this.startActivity(intentVolverNiveles);
+        Toast.makeText(this, nivelSiguiente, Toast.LENGTH_SHORT).show();
     }
 
 
@@ -99,5 +101,4 @@ public class NivelSuperado extends AppCompatActivity {
                 break;
         }
     }
-
 }
