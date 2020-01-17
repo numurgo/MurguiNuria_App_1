@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/level_instruct"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="15dp"
-    android:layout_marginTop="10dp"
-    android:layout_marginRight="15dp"
     android:layout_marginBottom="20dp"
     android:gravity="center_horizontal"
     android:orientation="vertical"
@@ -25,10 +21,14 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <include layout="@layout/toolbar"></include>
+
             <TextView
                 android:id="@+id/level_superado"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginBottom="30dp"
                 android:text="@string/level_1"
                 android:textColor="@color/textTerciary"
@@ -38,8 +38,8 @@
                 android:id="@+id/imagen_nivel_superado"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 android:layout_marginBottom="30dp"
                 app:srcCompat="@drawable/muebles" />
 
@@ -47,6 +47,8 @@
                 android:id="@+id/infoNivel"
                 style="@style/textoNivel"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
                 android:text="@string/text_level_1" />
 
             <LinearLayout

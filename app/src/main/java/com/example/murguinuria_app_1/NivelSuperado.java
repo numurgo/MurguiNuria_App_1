@@ -18,8 +18,9 @@ import java.util.ArrayList;
 
 public class NivelSuperado extends AppCompatActivity {
 
-    int nivelActual, nivelSiguiente= 0;
-    TextView titNivel, textoNivel;
+    int nivelActivo, nivelActual, nivelSiguiente= 0;
+    int defaultValue = 0;
+    TextView titNivel, textoNivel, tituloActivity;
     ImageView imagenNivel;
 
     @Override
@@ -27,24 +28,32 @@ public class NivelSuperado extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nivel_superado);
 
+        tituloActivity = findViewById(R.id.tituloPantalla);
+        tituloActivity.setText("HISTORIA DEL NIVEL");
+
         titNivel = findViewById(R.id.level_superado);
         textoNivel = findViewById(R.id.infoNivel);
         imagenNivel = findViewById(R.id.imagen_nivel_superado);
 
+        Intent i = getIntent();
+        nivelActivo = i.getIntExtra("level", defaultValue);
 
-        SharedPreferences prefs0 = PreferenceManager.getDefaultSharedPreferences(this);
-        nivelActual = prefs0.getInt("level", 0);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(NivelSuperado.this);
+        nivelActual = prefs.getInt("level", 0);
         nivelSuperado();
+
     }
 
 
     public void volverNiveles(View v){
-        nivelSiguiente = nivelActual+1;
+        if(nivelActual>nivelActivo) nivelSiguiente = nivelActual;
+        if(nivelActual == nivelActivo) nivelSiguiente = nivelActual+1;
 
         SQLiteDatabase database = new UsuariosSQLiteOpenHelper(NivelSuperado.this).getWritableDatabase();
         String user;
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(NivelSuperado.this);
         SharedPreferences.Editor editor = prefs.edit();
+
         editor.putInt("level", nivelSiguiente);
         editor.apply();
         user = prefs.getString("user", "");
@@ -61,7 +70,7 @@ public class NivelSuperado extends AppCompatActivity {
 
 
     public void nivelSuperado(){
-        switch (nivelActual){
+        switch (nivelActivo){
             case 0:
                 titNivel.setText(R.string.level_1);
                 textoNivel.setText(R.string.text_level_1);
@@ -92,6 +101,26 @@ public class NivelSuperado extends AppCompatActivity {
                 imagenNivel.setImageDrawable(getResources().getDrawable(R.drawable.transporte2));
                 break;
         }
+    }
+
+
+    public void cerrarSesion(View v){
+        Intent intentvolverLogin = new Intent(NivelSuperado.this, Login.class);
+        this.startActivity(intentvolverLogin);
+    }
+
+    @Override
+    protected void onDestroy() {
+        SharedPreferences prefsLogout= PreferenceManager.getDefaultSharedPreferences(NivelSuperado.this);
+        prefsLogout.edit().clear().commit();
+        super.onDestroy();
+    }
+
+    @Override
+    protected void onPostResume() {
+        SharedPreferences prefsLogout = PreferenceManager.getDefaultSharedPreferences(NivelSuperado.this);
+        prefsLogout.edit().clear().commit();
+        super.onPostResume();
     }
 
 }

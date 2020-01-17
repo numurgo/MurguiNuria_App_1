@@ -10,11 +10,15 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
     public class MainActivity extends AppCompatActivity {
 
+    TextView tituloActivity;
     int nivel;
     ArrayList<ItemData> itemsData;
 
@@ -22,6 +26,9 @@ import java.util.ArrayList;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        tituloActivity = findViewById(R.id.tituloPantalla);
+        tituloActivity.setText("SELECTOR DE NIVELES");
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 
@@ -53,6 +60,11 @@ import java.util.ArrayList;
         nivelOrigen();
 
     }
+
+    public void cerrarSesion(View v){
+            Intent intentvolverLogin = new Intent(MainActivity.this, Login.class);
+            this.startActivity(intentvolverLogin);
+        }
 
     public void nivelOrigen(){
         switch (nivel){
@@ -88,5 +100,17 @@ import java.util.ArrayList;
         }
     }
 
+        @Override
+        protected void onDestroy() {
+            SharedPreferences prefsLogout= PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
+            prefsLogout.edit().clear().commit();
+            super.onDestroy();
+        }
 
+        @Override
+        protected void onPostResume() {
+            SharedPreferences prefsLogout = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
+            prefsLogout.edit().clear().commit();
+            super.onPostResume();
+        }
 }

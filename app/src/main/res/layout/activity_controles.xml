@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".Controles">
 
+    <include layout="@layout/toolbar"></include>
+
     <ImageButton
         android:id="@+id/ibRight"
         style="@style/botonControles"

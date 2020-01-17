@@ -18,6 +18,8 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <include layout="@layout/toolbar"></include>
+
             <TextView
                 android:id="@+id/select_level"
                 android:layout_width="wrap_content"

@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/layoutLogin"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginLeft="15dp"
-    android:layout_marginTop="20dp"
+    android:layout_marginTop="40dp"
     android:layout_marginRight="15dp"
     android:layout_marginBottom="20dp"
     android:gravity="center_horizontal"
@@ -25,14 +24,14 @@
 
     <EditText
         android:id="@+id/usuarioLogin"
-        android:hint="Usuario"
         style="@style/editText"
-        android:inputType="textPersonName"/>
+        android:hint="Usuario"
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/passwordLogin"
-        android:hint="Contraseña"
         style="@style/editText"
+        android:hint="Contraseña"
         android:inputType="textPassword" />
 
     <Button
@@ -43,9 +42,9 @@
 
     <TextView
         android:id="@+id/bRegistrar"
-        android:clickable="true"
         style="@style/botonTexto"
         android:layout_marginTop="10dp"
+        android:clickable="true"
         android:onClick="Register"
         android:text="Registrar"
         android:textSize="16dp" />
