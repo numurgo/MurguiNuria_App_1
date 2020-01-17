@@ -59,6 +59,11 @@ import java.util.ArrayList;
 
     }
 
+    public void cerrarSesion(View v){
+            Intent intentvolverLogin = new Intent(MainActivity.this, Login.class);
+            this.startActivity(intentvolverLogin);
+        }
+
     public void nivelOrigen(){
         switch (nivel){
             case 0:
@@ -93,4 +98,17 @@ import java.util.ArrayList;
         }
     }
 
+        @Override
+        protected void onDestroy() {
+            SharedPreferences prefsLogout= PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
+            prefsLogout.edit().clear().commit();
+            super.onDestroy();
+        }
+
+        @Override
+        protected void onPostResume() {
+            SharedPreferences prefsLogout = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
+            prefsLogout.edit().clear().commit();
+            super.onPostResume();
+        }
 }

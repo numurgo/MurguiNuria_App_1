@@ -59,7 +59,7 @@ public class Login extends AppCompatActivity {
                 if (obtenerCifrado(password.getText().toString()).equals(pass)) {
                     this.usuario.setText("");
                     password.setText("");
-                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(Login.this);
                     SharedPreferences.Editor editor = prefs.edit();
                     editor.putString("user", usuario);
                     editor.putInt("level", nivel);
